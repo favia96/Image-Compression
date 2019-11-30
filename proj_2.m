@@ -43,7 +43,7 @@ mse2=(dct_img_quan-dct_img)'*(dct_img_quan-dct_img);
 %DCT-2 for each block
 %block_dct = blockproc(x,[8 8],@dct2);
 %block_idct = blockproc(block_dct,[8 8],@idct2);
-
+uniform_quantizer = @(x,ssize) round(x/ssize)*ssize;
 pepper=im2double(imread('images/peppers512x512.tif'));
 harbor=im2double(imread('images/harbour512x512.tif'));
 boat=im2double(imread('images/boats512x512.tif'));
@@ -63,6 +63,7 @@ for i=1:size(step,2)
     quan_harbor=mid_tread_quan(dct_harbor,quant);
     quan_boat=mid_tread_quan(dct_boat,quant);
     psnrs(i)=psnr([quan_pepper,quan_harbor,quan_boat],[dct_pepper,dct_harbor,dct_boat]);
+    %psnrs(i)=10*log10((255^2)/psnrs(i));
 transform = zeros(8,8,64,64,3); 
 k=1:64; l=1:64;
 for w=1:8
@@ -88,6 +89,8 @@ figure;
 surf(entropy);
 figure;
 plot(bits,psnrs)
+%axis([0 5 -10 50])
+grid on
 xlabel('Bit rates ','fontSize',18)
 ylabel('PSNR [dB]','fontSize',18)
 title('Rates-PSNR Curve','fontSize',18)
