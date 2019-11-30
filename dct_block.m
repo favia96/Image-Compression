@@ -1,4 +1,4 @@
-function [Y,A,A_quan]=dct_block(block)
+function Y=dct_block(block)
     A=zeros(size(block));
     M=size(A,1);
     for i=1:M
@@ -11,7 +11,7 @@ function [Y,A,A_quan]=dct_block(block)
             A(i,k)=ai*cos((2*k-1)*(i-1)*pi/2/M);
         end
     end
-    quant=linspace(-0.5,0.5,8+1);
-    A_quan=mid_tread_quan(A,quant);
-    Y=A_quan*block*(A_quan');
+    %quant=linspace(-0.5,0.5,8+1);
+    %=mid_tread_quan(A,quant);
+    Y=A*block*(A');
 end

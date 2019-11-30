@@ -11,7 +11,7 @@ function Y=inverse_dct_block(block)
             A(i,k)=ai*cos((2*k-1)*(i-1)*pi/2/M);
         end
     end
-     quant=linspace(-0.5,0.5,8+1);
-    A=mid_tread_quan(A,quant);
+     %quant=linspace(-0.5,0.5,8+1);
+    %A=mid_tread_quan(A,quant);
     Y=(A')*block*(A);
 end
