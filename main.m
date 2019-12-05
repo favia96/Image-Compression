@@ -1,13 +1,14 @@
-%% IMAGE PROCESSING - PROJECT 2, 30.11.2019
+%% IMAGE PROCESSING (EQ2330) - PROJECT 2, 30.11.2019
+%% IMAGE COMPRESSION
 %% Yue Song - Federico Favia
 
 %% Initialization
 clear ; close all; clc
 
-path_harbour = 'D:\Federico\Documents\Federico\Uni Trento\03 Magistrale EIT\02 EIT VCC 2019-20\2nd period\01 Image and Video Processing EQ2330\project_2\images\harbour512.tif';
-path_boats = 'D:\Federico\Documents\Federico\Uni Trento\03 Magistrale EIT\02 EIT VCC 2019-20\2nd period\01 Image and Video Processing EQ2330\project_2\images\boats512.tif';
-path_peppers = 'D:\Federico\Documents\Federico\Uni Trento\03 Magistrale EIT\02 EIT VCC 2019-20\2nd period\01 Image and Video Processing EQ2330\project_2\images\peppers512.tif';
-path_lena = 'D:\Federico\Documents\Federico\Uni Trento\03 Magistrale EIT\02 EIT VCC 2019-20\2nd period\01 Image and Video Processing EQ2330\project_2\images\lena512.bmp';
+path_harbour = 'path_to_image_harbour';
+path_boats = 'path_to_image_boats';
+path_peppers = 'path_to_image_peppers';
+path_lena = 'path_to_image_lena';
 
 %% ==================== Part 1: DCT-based Image Compression ====================
 %% DCT 8x8 block
@@ -120,7 +121,7 @@ title('Rates-PSNR Curve','fontSize',18)
 
 %% ==================== Part 2: FWT-based Image Compression ====================
 %% 1D case: analysis and synthesis 2-band filter banks
-load('D:\Federico\Documents\Federico\Uni Trento\03 Magistrale EIT\02 EIT VCC 2019-20\2nd period\01 Image and Video Processing EQ2330\project_2\project_2_image_proc\coeffs.mat');
+load('path_to_coeffs.mat');
 scaling_vector = db4;
 signal = rand(1,randi([2 1000],1,1)); % 1-d signal of random values and random size
 
